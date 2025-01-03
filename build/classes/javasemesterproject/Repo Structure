@@ -1,0 +1,22 @@
+E-Learning-System/
+├── src/
+│   ├── main/
+│       ├── java/
+│           └── com/
+│               └── elearning/
+│                   ├── App.java          // Main application entry point
+│                   ├── models/
+│                   │   ├── User.java     // User data model
+│                   │   └── Course.java   // Course data model
+│                   ├── views/
+│                   │   ├── LoginView.java  // Login GUI
+│                   │   ├── RegisterView.java // Registration GUI
+│                   │   └── DashboardView.java // User dashboard
+│                   ├── controllers/
+│                   │   ├── UserController.java // Handle user logic
+│                   │   └── CourseController.java // Handle course logic
+│                   └── services/
+│                       └── DatabaseService.java // Database connection
+├── resources/
+│   └── elearning.sql   // Database schema
+└── README.md
