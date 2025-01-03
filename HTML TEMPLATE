@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Learning System - User Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f4f9;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-link {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="form-container">
+        <h3 class="text-center">User Login</h3>
+        <form id="loginForm">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                <div class="invalid-feedback">Please provide a valid email.</div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                <div class="invalid-feedback">Password is required.</div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+        <p class="text-center mt-3">Don't have an account? <a href="#register" class="btn-link">Register</a></p>
+    </div>
+
+    <div class="form-container" id="registerFormContainer" style="display: none;">
+        <h3 class="text-center">User Registration</h3>
+        <form id="registerForm">
+            <div class="mb-3">
+                <label for="regName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="regName" placeholder="Enter your full name" required>
+                <div class="invalid-feedback">Name is required.</div>
+            </div>
+            <div class="mb-3">
+                <label for="regEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="regEmail" placeholder="Enter your email" required>
+                <div class="invalid-feedback">Please provide a valid email.</div>
+            </div>
+            <div class="mb-3">
+                <label for="regPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="regPassword" placeholder="Enter a password" required>
+                <div class="invalid-feedback">Password is required.</div>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Register</button>
+        </form>
+        <p class="text-center mt-3">Already have an account? <a href="#login" class="btn-link">Login</a></p>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Toggle between Login and Registration forms
+    document.querySelectorAll('.btn-link').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = btn.getAttribute('href');
+            if (target === '#register') {
+                document.querySelector('#loginForm').parentElement.style.display = 'none';
+                document.querySelector('#registerFormContainer').style.display = 'block';
+            } else {
+                document.querySelector('#registerFormContainer').style.display = 'none';
+                document.querySelector('#loginForm').parentElement.style.display = 'block';
+            }
+        });
+    });
+
+    // Handle form submission
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Login submitted');
+        // Send data to server (integrate with Java back-end)
+    });
+
+    document.getElementById('registerForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Registration submitted');
+        // Send data to server (integrate with Java back-end)
+    });
+</script>
+</body>
+</html>
